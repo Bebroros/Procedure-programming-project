@@ -1,6 +1,7 @@
 # Procedure-programming-project
 
-Artem Shkilniuk: Bebroros
+- Artem Shkilniuk: Bebroros
+- Vysokovskykh Kateryna: Kvstkk
 
 # Linux application for taking screenshots
 
