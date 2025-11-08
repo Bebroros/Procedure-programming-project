@@ -10,5 +10,6 @@ struct image
 };
 
 struct image make_fullscreen_screenshot();
+struct image make_window_screenshot();
 
 #endif
