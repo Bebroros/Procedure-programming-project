@@ -1,6 +1,7 @@
 #ifndef make_screenshot
 #define make_screenshot
 #include <X11/Xlib.h>
+#include <stdlib.h>
 
 struct image
 {
@@ -9,7 +10,7 @@ struct image
     XWindowAttributes attrs;
 };
 
-struct image make_fullscreen_screenshot();
-struct image make_window_screenshot();
+struct image* make_fullscreen_screenshot();
+struct image* make_window_screenshot();
 
 #endif
