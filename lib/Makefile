@@ -7,7 +7,7 @@ TARGET = libscreenshot.so
 
 all: $(TARGET)
 
-$(TARGET): $(SRCS)
+$(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o $(TARGET) -shared $(LDFLAGS)
 
 clean:
