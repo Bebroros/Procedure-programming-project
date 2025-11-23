@@ -1,33 +1,33 @@
 #include "../include/make_screenshot.h"
 
 
-struct image make_fullscreen_screenshot() {
-    struct image img;
-    img.display = NULL;
+struct image* make_fullscreen_screenshot() {
+    struct image *img = malloc(sizeof(struct image));
+    img->display = NULL;
 
     Display* display = XOpenDisplay(NULL);
     if (display == NULL) {
         return img;
     }
-    img.display = display;
+    img->display = display;
     Window root_display = DefaultRootWindow(display);
 
-    XGetWindowAttributes(display, root_display, &img.attrs);
+    XGetWindowAttributes(display, root_display, &img->attrs);
 
-    img.image_ptr = XGetImage(display, root_display, 0, 0, img.attrs.width, img.attrs.height, AllPlanes, ZPixmap);
+    img->image_ptr = XGetImage(display, root_display, 0, 0, img->attrs.width, img->attrs.height, AllPlanes, ZPixmap);
 
     return img;
 }
 
-struct image make_window_screenshot() {
-    struct image img;
+struct image* make_window_screenshot() {
+    struct image *img = malloc(sizeof(struct image));
 
     Display* display = XOpenDisplay(NULL);
     if (display == NULL) {
-        return;
+        return NULL;
     }
 
-    img.display = display;
+    img->display = display;
 
     Window root_display = DefaultRootWindow(display);
 
@@ -41,9 +41,9 @@ struct image make_window_screenshot() {
         child_returned = root_display;
     }
 
-    XGetWindowAttributes(display, child_returned, &img.attrs);
+    XGetWindowAttributes(display, child_returned, &img->attrs);
 
-    img.image_ptr = XGetImage(display, child_returned, 0, 0, img.attrs.width, img.attrs.height, AllPlanes, ZPixmap);
+    img->image_ptr = XGetImage(display, child_returned, 0, 0, img->attrs.width, img->attrs.height, AllPlanes, ZPixmap);
 
     return img;
 }
