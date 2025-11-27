@@ -18,7 +18,7 @@ It runs in the background, captures and saves either full screen or single windo
 - xlib
 - libpng 
 
-Commands to install all(For Debian/Ubuntu):
+Commands to install all (For Debian/Ubuntu):
    ```
    sudo apt update
    sudo apt install build-essential libx11-dev libpng-dev
@@ -31,15 +31,17 @@ Commands to install all(For Debian/Ubuntu):
 
    `./app/screenshot_app`
 
-4. **Hotkeys**
+4. **Hotkeys** <br>
 
+**Make sure num lock and caps lock  is turned off !!!**
 - Full screen: `Ctrl + Shift + 1`
 - Single Window: `Ctrl + Shift + 3` *(point cursor on window)*
 - Exit:`Ctrl+C`
 
 Screenshots are saved in in current folder with filenames `screenshot_YEAR_MONTH_DAY_HOUR-MIN-SEC.png`
 
-5. **Functions and key implementation details**
+---
+## **Functions and key implementation details**
 
 1. `struct image* make_fullscreen_screenshot()`
    1) Display is opened with XOpenDisplay()
